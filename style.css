@@ -1,0 +1,42 @@
+body{
+    background: #f9f9f9!important;
+}
+.box{
+    width: 246px;
+    height: 200px;
+    border: 1px solid;
+}
+ul{
+    padding: 0!important;
+}
+li{
+    list-style-type: none;
+}
+.some-room{
+    margin-top: 60px;
+}
+.logo{
+    width: 80px;
+}
+.fixed{
+    position: absolute;
+}
+.btn{
+    border-radius: 0!important;
+}
+input{
+    border: 1px solid #e2e2e2!important;
+    padding: 10px!important;
+}
+.well {
+    background: rgb(255, 252, 255)!important;
+    border-radius: 0!important;
+}
+.top-right-parent{
+    position: relative;
+}
+.top-right{
+    position: absolute;
+    top: 0;
+    right: 0;
+}

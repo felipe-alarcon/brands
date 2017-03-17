@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="http://bootswatch.com/paper/bootstrap.min.css">
+  <title>Brands DB - Saved Data</title>
+</head>
+<body>
+    <div class="text-center">
+      <a href="index.html" class="btn btn-success"><span class="glyphicon glyphicon-circle-arrow-left" aria-hidden="true"></span> Go back to home </a>
+    </div>
+		<div class="container"><center><img class="logo animated rollIn" src="images/Logomakr_4d1FRF.png"></center></div>
+	  <div class="container some-room text-center" id="test-list">
+      <input type="text" name="filter" class="fuzzy-search form-control" placeholder="Filter your saved values....">
+      <ul id="saved-data" class="list"></ul>
+	  </div>
+  <script src="http://cdn.jsdelivr.net/alasql/0.3/alasql.min.js"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/list.js/1.5.0/list.min.js"></script>
+  <script type="text/javascript" src="saved.js"></script>
+  <script type="text/javascript" src="bower_components/clipboard/dist/clipboard.min.js"></script>
+  <script>
+        var clipboard = new Clipboard('#data');
+        clipboard.on('success', function(e) {
+            console.log('copied!');
+        });
+        clipboard.on('error', function(e) {
+            console.log('error');
+        });
+   </script>
+</body>
+</html>
