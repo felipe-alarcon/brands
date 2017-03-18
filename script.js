@@ -1,8 +1,11 @@
 /*
-* future features
+* future features:
 * add registered trademark dynamically
-*
-*
+* 
+* Issues:
+* Fixed: & in string link - encodeURIComponent('pull&bear'); 
+* Fixed: localStorage issue
+* Fixed: DISTINCT values from SQL
 */
 
 function loadJSON(callback) {   
@@ -31,15 +34,15 @@ function init() {
         output.innerHTML = "";
       }
       var input = document.getElementById('input').value + "%";
-      var res = alasql('SELECT * FROM ? WHERE FIELD2 LIKE ?',[data, input]);
+      var res = alasql('SELECT DISTINCT FIELD2 FROM ? WHERE FIELD2 LIKE ?',[data, input]);
       if ( res.length > 0 && res.length <= 20 ){
         for ( var i = 0; i < res.length; i++ ) {
           output.innerHTML += 
                       `<li class="well well-lg top-right-parent">
-                          <a target="_blank" class="top-right btn" href="https://duckduckgo.com/?q=!ducky+${res[i].FIELD2}">VISIT SITE <span class="glyphicon glyphicon-new-window"></span></a>
+                          <a target="_blank" class="top-right btn" href="https://duckduckgo.com/?q=!ducky+${encodeURIComponent(res[i].FIELD2)}">VISIT SITE <span class="glyphicon glyphicon-new-window"></span></a>
                           <h2>${res[i].FIELD2}</h2> <br>
                           <div class="btn-group">
-                            <a href="https://www.google.ie/search?q=${res[i].FIELD2}+logo&source=lnms&tbm=isch" target="_blank" class="btn btn-primary btn-block">Check on Google</a>
+                            <a href="https://www.google.ie/search?q=${encodeURIComponent(res[i].FIELD2)}+logo&source=lnms&tbm=isch" target="_blank" class="btn btn-primary btn-block">Check on Google</a>
                             <button class="btn btn-success btn-block" onclick="save('${res[i].FIELD2}', this)">Save Brand</button>
                             <button id="data" class="btn btn-default btn-block" data-clipboard-text='${res[i].FIELD2}'>
                             COPY</button>
